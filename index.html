@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <nav class="navbar">
+        <img src="images/image.png" alt="">
+        <p>SafeZone</p>
+    </nav>
+    <div class="container">
+        <div class="content">
+            <div class="description">
+                <h2>Aim Of the Project</h2>
+                <h4>
+                    This Project Aims to calcualte the attendance percentage for future
+                    assumptions and making it to reality. Unknowingly without any plan we
+                    bunks the classes rapidly in the first this effects at the time of
+                    Semester where we need to maintain the min of 75% or 65%. Here comes My website analyses your
+                    attendance.
+                </h4>
+                <h3>
+                    1. How many days we need to go ? <br />
+                    2. What will be my attendance if i go for x days <br />
+                    3. What will be my attendance i go bunk whole day?
+                </h3>
+            </div>
+            <div class="input">
+                <label for="classesAttended">ClassesAttended</label>
+                <input type="text" id="classesAttended" />
+
+                <label for="TotalClasses">TotalClasses</label>
+                <input type="text" id="TotalClasses" />
+                <label for="classesPerDay">classesPerDay</label>
+                <input type="text" id="classesPerDay" />
+                <label for="targetDate">Semester End Date</label>
+                <input type="date" id="targetDate">
+
+            </div>
+            <div class="submitBTN">
+                <button type="button" class="btn btn-outline-success" id="btn">
+                    Analyse
+                </button>
+            </div>
+            <div class="report">
+                <h2>Attendance Analysis Report</h2>
+                <div class="meterCircle"></div>
+                <p id="currentAttendace">Current Attendance</p>
+                <hr class="border border-primary border-3 opacity-75">
+                <div class="Data">
+                    <div class="inputDiv">
+                        <div class="leftChildInput">
+                            <input type="text" class="Input" value="Classes Attended" disabled>
+                            <input type="text" class="Output" id="fetchClassesAttended" disabled>
+                        </div>
+                        <div class="rightChildInput">
+                            <input type="text" class="Input" value="Total Classes" disabled>
+                            <input type="text" class="Output" id="fetchTotalClasses" disabled>
+                        </div>
+                    </div>
+                    <div class="inputDiv">
+                        <div class="leftChildInput">
+                            <input type="text" class="Input" value="Classes Needed to Reach 75%" disabled>
+                            <input type="text" class="Output" id="fetchClassesNeeded" disabled>
+                        </div>
+                        <div class="rightChildInput">
+                            <input type="text" class="Input" value="Number of Days to Go" disabled>
+                            <input type="text" class="Output" id="fetchnumberOfDaysToGo" disabled>
+                        </div> 
+                    </div>
+                    <div class="inputDiv">
+                        <div class="leftChildInput">
+                            <input type="text" class="Input" value="Target Date" disabled>
+                            <input type="text" class="Output" id="fetchTargetDate" disabled>
+                        </div>
+                        <div class="rightChildInput">
+                            <input type="text" class="Input" value="Remaining Working Days" disabled>
+                            <input type="text" class="Output" id="fetchRemainingWorkingDays" disabled>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="stats-info">
+                    <p id="targetAttendance">Target Attendance : 75%</p>
+                    <p>Classes Attended : <span id="fetchClassesAttended"></span></p>
+                    <p>Total Classes : <span id="fetchTotalClasses"></span></p>
+                    <p>Classes Needed to Reach : <span id="fetchClassesNeeded"></span></p>
+                    <p>Classes You Can Bunk : <span id="fetchClassesYouCanBunk"></span></p>     
+                    <p>Target Date : <span id="fetchTargetDate"></span></p>    
+                </div> -->
+                <div class="closingCard">
+                    <div class="topBox">
+                        <img src="images/profile.png" alt="">
+                    </div>
+                    <hr>
+                    <div class="bottomBox">
+
+                        <p>Iam also a student studying in VNRVJIET COLLEGE, where i was struggling to get the Attendnce
+                            to 75%
+                            EveryTime i used to balance upto 75% by calculating through manual way frequently.
+                            Here comes the simple idea to make this process automation by providing the interface
+                            students like me and providig accurate outputer
+                        </p>
+                    </div>
+                   
+                </div>
+                <p id="naming">Designed by ~Praveen❤️</p>
+            </div>
+            <div class="footer">
+
+            </div>
+        </div>
+
+        <script src="script.js"></script>
+</body>
+
+</html>
