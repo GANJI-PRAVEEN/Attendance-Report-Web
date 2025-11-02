@@ -342,3 +342,13 @@ html,body {
         font-size: 0.6rem;
     }
 }
+@media (max-width:500px){
+    .bottomBox p{
+        font-size: 1rem;
+    }
+}
+@media (max-width:360px){
+    .bottomBox p{
+        font-size: 0.8rem;
+    }
+}
