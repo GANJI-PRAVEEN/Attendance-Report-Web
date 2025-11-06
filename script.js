@@ -7,29 +7,27 @@ function classesNeededToReach75(classesAttended,TotalClasses,classesPerDay,targe
 
 }
 
-function applyDetails(classesAttended,TotalClasses,classesPerDay,attendancePercentage,targetDateString,xClasses){
+function applyDetails(classesAttended,TotalClasses,classesPerDay,attendancePercentage,targetDateString,availableClasses,xClasses){
     let classesAttendSpan  =document.getElementById("fetchClassesAttended");
     let totalClassesSpan   = document.getElementById("fetchTotalClasses");
     let classesNeededSpan = document.getElementById("fetchClassesNeeded");
     let numberOfDaysToGo = document.getElementById("fetchnumberOfDaysToGo");
     let targetDateSpan = document.getElementById("fetchTargetDate");
     let remainingWorkingDays = document.getElementById("fetchRemainingWorkingDays");
-    if(xClasses!=""){
+    if(xClasses!="" && availableClasses!=""){
       if(document.getElementById("msgPara")){
         document.getElementById("msgPara").remove();
       }
-      let div =  document.getElementsByClassName("report")[0];
-      let currentAttendaceText = document.getElementById("currentAttendace");
       let newpara = document.createElement("h4");
-      newpara.textContent=`Your atttendance report after ${xClasses} Classes `;
+      newpara.textContent=`Your atttendance report after ${availableClasses} Classes `;
       newpara.id="msgPara";
       newpara.style.textAlign="center";
       newpara.style.fontWeight="bold";
       currentAttendaceTag.after(newpara);
       classesAttended+=xClasses;
-      TotalClasses+=xClasses;
+      TotalClasses+=availableClasses;
       attendancePercentage=((classesAttended/TotalClasses)*100);
-      currentAttendaceTag.textContent = `attendance after ${Math.ceil(xClasses/classesPerDay).toFixed(0)} Days (${xClasses}): ${attendancePercentage.toFixed(2)}%`;
+      currentAttendaceTag.textContent = `attendance after ${Math.ceil(availableClasses/classesPerDay).toFixed(0)} Days (${availableClasses}): ${attendancePercentage.toFixed(2)}%`;
     }
     let workingDays = getWorkingDaysUntilToday(targetDateString);
     remainingWorkingDays.value=''+workingDays;
@@ -81,6 +79,7 @@ function calculateAttendance() {
   let attendancePercentage = (classesAttended / TotalClasses) * 100;
   let targetDateString = document.getElementById("targetDate").value;
   let xClasses = Number(document.getElementById("xClasses").value);
+  let availableClasses = Number(document.getElementById("availableClasses").value);
 
 
 
@@ -89,12 +88,18 @@ function calculateAttendance() {
   let meterCircle = document.getElementsByClassName("meterCircle")[0];
   meterCircle.style.setProperty('--value',attendancePercentage);
   currentAttendaceTag.textContent = `Your current Attendance is ${attendancePercentage.toFixed(2)}%`;
-  applyDetails(classesAttended,TotalClasses,classesPerDay,attendancePercentage,targetDateString,xClasses);
+  applyDetails(classesAttended,TotalClasses,classesPerDay,attendancePercentage,targetDateString,availableClasses,xClasses);
 
 }
 
 let btnSubmit = document.getElementsByClassName("submitBTN")[0];
-btnSubmit.addEventListener('click', calculateAttendance);
+btnSubmit.addEventListener('click',() =>{
+  calculateAttendance();
+
+  document.getElementById("reportSection").scrollIntoView({
+    behavior:"smooth"
+  });
+});
 console.log(document.getElementsByClassName("Input"));
 let currentAttendaceTag = document.getElementById("currentAttendace");
 

@@ -80,8 +80,19 @@ html,body {
     flex-direction: row;
     justify-content: space-evenly;
 }
+.input2{
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap:20px;
+}
 .input input {
-    width:100px;
+    width:120px;
+    height:25px;
+}
+.input2 input {
+    width:120px;
     height:25px;
 }
 .submitBTN{
@@ -323,7 +334,7 @@ html,body {
     }
 }
 @media (max-width:1190px){
-    .input{
+    .input,.input2{
         display:flex;
         flex-direction: column;
         gap:20px;
