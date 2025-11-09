@@ -14,7 +14,7 @@ function applyDetails(classesAttended,TotalClasses,classesPerDay,attendancePerce
     let numberOfDaysToGo = document.getElementById("fetchnumberOfDaysToGo");
     let targetDateSpan = document.getElementById("fetchTargetDate");
     let remainingWorkingDays = document.getElementById("fetchRemainingWorkingDays");
-    if(xClasses!="" && availableClasses!=""){
+    if(xClasses!=0 || availableClasses!=0){
       if(document.getElementById("msgPara")){
         document.getElementById("msgPara").remove();
       }
@@ -79,7 +79,9 @@ function calculateAttendance() {
   let attendancePercentage = (classesAttended / TotalClasses) * 100;
   let targetDateString = document.getElementById("targetDate").value;
   let xClasses = Number(document.getElementById("xClasses").value);
+  console.log(xClasses);
   let availableClasses = Number(document.getElementById("availableClasses").value);
+  console.log(availableClasses);
 
 
 
