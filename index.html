@@ -1,130 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SafeZone-Attendy Analysis</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SafeZone — Attendance Analysis</title>
+
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-    <nav class="navbar">
-        <img src="images/image.png" alt="">
-        <p>SafeZone</p>
-    </nav>
-    <div class="container">
-        <div class="content">
-            <div class="description">
-                <h2>Aim Of the Project</h2>
-                <h4>
-                    This Project Aims to calculate the attendance percentage for future
-                    assumptions and making it to reality. Unknowingly without any plan we
-                    bunk the classes rapidly in the first this effects at the time of
-                    Semester where we need to maintain the min of 75% or 65%. Here comes My website analyse your
-                    attendance.
-                </h4>
-                <h3>
-                    1. How many days we need to go ? <br />
-                    2. What will be your attendance if i go for x days <br />
-                    3. You will have future reference of your attendance..!
-                </h3>
-            </div>
-            <div class="input">
-                <label for="classesAttended">ClassesAttended</label>
-                <input type="number" id="classesAttended" />
+  <header class="navbar" role="banner">
+    <div class="nav-inner">
+      <img src="images/image.png" alt="SafeZone logo" class="logo" />
+      <h1 class="brand">SafeZone</h1>
+    </div>
+  </header>
 
-                <label for="TotalClasses">TotalClasses</label>
-                <input type="number" id="TotalClasses"/>
-                <label for="classesPerDay">classesPerDay</label>
-                <input type="number" id="classesPerDay" />
-                <label for="targetDate">Semester End Date</label>
-                <input type="date" id="targetDate">
-                
-            </div>
-            <div class="input2">
-                <label for="availableClasses">Available Classes</label>
-                <input type="number" id="availableClasses">
-                <label for="xClasses">Going for X-Classes</label>
-                <input type="number" id="xClasses">
-            </div>
+  <main class="page container">
+    <!-- Intro / Description -->
+    <section class="card description reveal">
+      <h2>Aim of the Project</h2>
+      <p>
+        This tool helps students calculate attendance percentages and plan how many classes they must attend
+        to reach the minimum required attendance (e.g. 75%). It provides quick answers:
+      </p>
+      <ul>
+        <li>How many days you need to attend</li>
+        <li>What your attendance will be after X classes</li>
+        <li>Remaining working days until semester end</li>
+      </ul>
+    </section>
 
-            <div class="submitBTN">
-                <button type="button" class="btn btn-outline-success" id="btn">
-                    Analyse
-                </button>
-            </div>
-            <div class="report" id="reportSection">
-                <h2>Attendance Analysis Report</h2>
-                <div class="meterCircle"></div>
-                <p id="currentAttendace">Current Attendance</p>
-                <hr class="border border-primary border-3 opacity-75">
-                <div class="Data">
-                    <div class="inputDiv">
-                        <div class="leftChildInput">
-                            <input type="text" class="Input" value="Classes Attended" disabled>
-                            <input type="text" class="Output" id="fetchClassesAttended" disabled>
-                        </div>
-                        <div class="rightChildInput">
-                            <input type="text" class="Input" value="Total Classes" disabled>
-                            <input type="text" class="Output" id="fetchTotalClasses" disabled>
-                        </div>
-                    </div>
-                    <div class="inputDiv">
-                        <div class="leftChildInput">
-                            <input type="text" class="Input" value="Classes Needed to get 75%" disabled>
-                            <input type="text" class="Output" id="fetchClassesNeeded" disabled>
-                        </div>
-                        <div class="rightChildInput">
-                            <input type="text" class="Input" value="Number of Days to Go" disabled>
-                            <input type="text" class="Output" id="fetchnumberOfDaysToGo" disabled>
-                        </div> 
-                    </div>
-                    <div class="inputDiv">
-                        <div class="leftChildInput">
-                            <input type="text" class="Input" value="Target Date" disabled>
-                            <input type="text" class="Output" id="fetchTargetDate" disabled>
-                        </div>
-                        <div class="rightChildInput">
-                            <input type="text" class="Input" value="Remaining Working Days" disabled>
-                            <input type="text" class="Output" id="fetchRemainingWorkingDays" disabled>
-                        </div>
-                    </div>
-                </div>
-                <!-- <div class="stats-info">
-                    <p id="targetAttendance">Target Attendance : 75%</p>
-                    <p>Classes Attended : <span id="fetchClassesAttended"></span></p>
-                    <p>Total Classes : <span id="fetchTotalClasses"></span></p>
-                    <p>Classes Needed to Reach : <span id="fetchClassesNeeded"></span></p>
-                    <p>Classes You Can Bunk : <span id="fetchClassesYouCanBunk"></span></p>     
-                    <p>Target Date : <span id="fetchTargetDate"></span></p>    
-                </div> -->
-                <div class="closingCard">
-                    <div class="topBox">
-                        <img src="images/profile.png" alt="">
-                    </div>
-                    <hr>
-                    <div class="bottomBox">
+    <!-- Inputs -->
+    <section class="card grid-2 reveal">
+      <div class="inputs-block">
+        <h3>Attendance Inputs</h3>
+        <div class="inputs">
+          <label for="classesAttended">Classes Attended</label>
+          <input type="number" id="classesAttended" min="0" placeholder="e.g. 45">
 
-                        <p>Iam also a student studying in VNRVJIET COLLEGE, where i was struggling to get the Attendnce
-                            to 75%
-                            EveryTime i used to balance upto 75% by calculating through manual way frequently.
-                            Here comes the simple idea to make this process automation by providing the interface
-                            students like me and providig accurate output.
-                        </p>
-                    </div>
-                   
-                </div>
-                <p id="naming">Designed by ~Praveen❤️</p>
-            </div>
-            <div class="footer">
+          <label for="TotalClasses">Total Classes</label>
+          <input type="number" id="TotalClasses" min="1" placeholder="e.g. 60">
 
-            </div>
+          <label for="classesPerDay">Classes Per Day</label>
+          <input type="number" id="classesPerDay" min="1" placeholder="e.g. 3">
+
+          <label for="targetDate">Semester End Date</label>
+          <input type="date" id="targetDate">
+        </div>
+      </div>
+
+      <div class="inputs-block">
+        <h3>Optional / Scenario</h3>
+        <div class="inputs">
+          <label for="availableClasses">Available Classes (until target)</label>
+          <input type="number" id="availableClasses" min="0" placeholder="e.g. 30">
+
+          <label for="xClasses">Going for X-Classes (simulate)</label>
+          <input type="number" id="xClasses" min="0" placeholder="e.g. 5">
         </div>
 
-        <script src="script.js"></script>
-</body>
+        <div class="action-row">
+          <button id="btn" class="btn primary">Analyse</button>
+          <button id="resetBtn" class="btn ghost">Reset</button>
+        </div>
+      </div>
+    </section>
 
+    <!-- Report -->
+    <section id="reportSection" class="card report reveal" aria-live="polite">
+      <h2>Attendance Analysis Report</h2>
+
+      <div class="meter-wrap">
+        <div class="meterCircle" aria-hidden="true">
+          <span class="meter-value" id="meterValue">0%</span>
+        </div>
+        <p id="currentAttendace" class="current-attendance">Your current attendance: —</p>
+      </div>
+
+      <hr>
+
+      <div class="Data">
+        <div class="data-row">
+          <span class="label">Classes Attended</span>
+          <input class="Output" id="fetchClassesAttended" disabled>
+        </div>
+
+        <div class="data-row">
+          <span class="label">Total Classes</span>
+          <input class="Output" id="fetchTotalClasses" disabled>
+        </div>
+
+        <div class="data-row">
+          <span class="label">Classes Needed (to reach 75%)</span>
+          <input class="Output" id="fetchClassesNeeded" disabled>
+        </div>
+
+        <div class="data-row">
+          <span class="label">Number of Days to Go</span>
+          <input class="Output" id="fetchnumberOfDaysToGo" disabled>
+        </div>
+
+        <div class="data-row">
+          <span class="label">Target Date</span>
+          <input class="Output" id="fetchTargetDate" disabled>
+        </div>
+
+        <div class="data-row">
+          <span class="label">Remaining Working Days</span>
+          <input class="Output" id="fetchRemainingWorkingDays" disabled>
+        </div>
+      </div>
+
+      <div class="closingCard">
+        <div class="topBox">
+          <img src="images/profile.png" alt="Profile" />
+        </div>
+        <div class="bottomBox">
+          <p>
+            I built this tool while studying — it helped me track attendance and plan toward 75%.
+            Use it to experiment with scenarios and stay on track.
+          </p>
+        </div>
+      </div>
+
+      <p class="credit">Designed by ~Praveen ❤️</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small>© SafeZone</small>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
 </html>
